@@ -46,8 +46,8 @@ func CheckAll(serverPath string,taskId string,isReport bool)  error{
 	//巡检上报
 	if !isReport {
 		InspectionReport("/v1/reg/inspection/report",taskId)
+		models.UpdateTaskStatus(taskId,"complete",true)
 	}
-	models.UpdateTaskStatus(taskId,"complete",true)
 	return nil
 }
 /**
